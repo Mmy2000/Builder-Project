@@ -1,3 +1,4 @@
+import Buttons from "./Buttons";
 import Image from "./Image";
 
 
@@ -64,7 +65,7 @@ export default function ProductCard() {
         </div>
         <div className="flex justify-between items-center mb-4">
           <span className="text-xl font-bold text-gray-900">$250,000</span>
-          
+
           <Image
             imageURL="https://img.freepik.com/premium-photo/modern-automobile-classic-technology-wheel-traffic_665346-119.jpg"
             alt="Product Name"
@@ -72,12 +73,14 @@ export default function ProductCard() {
           />
         </div>
         <div className="flex gap-4">
-          <button className="flex-1 py-2 rounded-md bg-indigo-600 text-white font-medium hover:bg-indigo-800 transition-colors">
-            Edit
-          </button>
-          <button className="flex-1 py-2 rounded-md bg-red-600 text-white font-medium hover:bg-red-800 transition-colors">
-            Delete
-          </button>
+          <Buttons 
+            className="flex-1 py-2 rounded-md bg-indigo-600 text-white font-medium hover:bg-indigo-800 transition-colors" 
+            text="Edit" 
+          />
+          <Buttons
+            className="flex-1 py-2 rounded-md bg-red-600 text-white font-medium hover:bg-red-800 transition-colors"
+            text="Delete"
+          />
         </div>
       </div>
     </div>
