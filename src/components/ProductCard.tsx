@@ -7,6 +7,7 @@ export default function ProductCard() {
       <Image
         imageURL="https://img.freepik.com/premium-photo/modern-automobile-classic-technology-wheel-traffic_665346-119.jpg"
         alt="Product Name"
+        className="object-contain"
       />
       <div className="px-3 pb-3">
         <h3 className="mt-1 text-xl font-semibold">simple car</h3>
@@ -21,10 +22,11 @@ export default function ProductCard() {
         </div>
         <div className="flex justify-between items-center">
           <span>$250,000</span>
-          <img
+          
+          <Image
+            imageURL="https://img.freepik.com/premium-photo/modern-automobile-classic-technology-wheel-traffic_665346-119.jpg"
+            alt="Product Name"
             className="w-10 h-10 rounded-full"
-            src="https://img.freepik.com/premium-photo/modern-automobile-classic-technology-wheel-traffic_665346-119.jpg"
-            alt=""
           />
         </div>
         <div className="flex text-white gap-2 mt-3">
