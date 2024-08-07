@@ -25,10 +25,10 @@ export default function ProductCard() {
         />
       </div>
       <div className="flex text-white gap-2 mt-3">
-        <button className="py-2 w-1/2 rounded  bg-indigo-600 hover:bg-indigo-800 transition-colors">
+        <button className="py-2 w-1/2 rounded-md  bg-indigo-600 hover:bg-indigo-800 transition-colors">
           Edit
         </button>
-        <button className="py-2 w-1/2 rounded   bg-red-700 hover:bg-red-800 transition-colors">
+        <button className="py-2 w-1/2 rounded-md   bg-red-700 hover:bg-red-800 transition-colors">
           Destroy
         </button>
       </div>
