@@ -49,7 +49,7 @@ export default function ProductCard() {
           className="object-contain transition-transform duration-300 ease-in-out transform hover:scale-110 "
         />
       </div>
-      <div className="px-4 py-4 bg-white rounded-b-lg">
+      <div className="px-4 py-2 bg-white rounded-b-lg">
         <h3 className="mt-2 text-2xl font-semibold text-gray-800">
           Simple Car
         </h3>
