@@ -3,12 +3,14 @@ import Image from "./Image";
 
 export default function ProductCard() {
   return (
-    <div className="shadow-lg border-black  rounded flex flex-col">
-      <Image
-        imageURL="https://img.freepik.com/premium-photo/modern-automobile-classic-technology-wheel-traffic_665346-119.jpg"
-        alt="Product Name"
-        className="object-contain"
-      />
+    <div className="shadow-lg  border-black  rounded flex flex-col">
+      <div className="overflow-hidden">
+        <Image
+          imageURL="https://img.freepik.com/premium-photo/modern-automobile-classic-technology-wheel-traffic_665346-119.jpg"
+          alt="Product Name"
+          className="object-contain transition-transform duration-300 ease-in-out transform hover:scale-110 "
+        />
+      </div>
       <div className="px-3 pb-3">
         <h3 className="mt-1 text-xl font-semibold">simple car</h3>
         <p className="my-2 font-light">
@@ -22,7 +24,7 @@ export default function ProductCard() {
         </div>
         <div className="flex justify-between items-center">
           <span>$250,000</span>
-          
+
           <Image
             imageURL="https://img.freepik.com/premium-photo/modern-automobile-classic-technology-wheel-traffic_665346-119.jpg"
             alt="Product Name"
@@ -31,10 +33,10 @@ export default function ProductCard() {
         </div>
         <div className="flex text-white gap-2 mt-3">
           <button className="py-2 w-1/2 rounded-md  bg-indigo-600 hover:bg-indigo-800 transition-colors">
-            Edit
+            EDIT
           </button>
           <button className="py-2 w-1/2 rounded-md   bg-red-700 hover:bg-red-800 transition-colors">
-            Destroy
+            DELETE
           </button>
         </div>
       </div>
