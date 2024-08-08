@@ -13,7 +13,7 @@ export default function ProductCard({product}:IProps) {
   const {title , imageURL ,description} = product
  
   return (
-    <div className="shadow-lg border border-gray-200 rounded-lg flex flex-col transition-transform duration-300 hover:shadow-2xl hover:scale-105">
+    <div className="shadow-lg border max-w-sm mx-auto md:max-w-md border-gray-200 rounded-lg flex flex-col transition-transform duration-300 hover:shadow-2xl hover:scale-105">
       <div className="overflow-hidden rounded-t-lg">
         <Image
           imageURL={imageURL}
