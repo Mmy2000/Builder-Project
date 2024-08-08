@@ -2,6 +2,7 @@ import Buttons from "./ui/Buttons";
 import Image from "./Image";
 
 import { IProduct } from "../interfaces";
+import { textSlicer } from "../utils/functions";
 
 interface IProps {
   product : IProduct
@@ -9,7 +10,7 @@ interface IProps {
 
 export default function ProductCard({product}:IProps) {
 
-  const {title , imageURL} = product
+  const {title , imageURL ,description} = product
  
   return (
     <div className="shadow-lg border border-gray-200 rounded-lg flex flex-col transition-transform duration-300 hover:shadow-2xl hover:scale-105">
@@ -25,7 +26,7 @@ export default function ProductCard({product}:IProps) {
           {title}
         </h3>
         <p className="my-3 text-gray-600">
-          {product.description}
+          {textSlicer(description)}
         </p>
         <div className="flex gap-2 mb-3">
           <span className="w-5 h-5 cursor-pointer bg-red-600 rounded-full"></span>
