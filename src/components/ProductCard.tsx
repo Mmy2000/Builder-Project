@@ -1,6 +1,5 @@
-import Buttons from "./Buttons";
+import Buttons from "./ui/Buttons";
 import Image from "./Image";
-
 
 export default function ProductCard() {
   return (
@@ -35,14 +34,12 @@ export default function ProductCard() {
           />
         </div>
         <div className="flex gap-4">
-          <Buttons 
-            className="flex-1 py-2 rounded-md bg-indigo-600 text-white font-medium hover:bg-indigo-800 transition-colors" 
-            text="Edit" 
-          />
-          <Buttons
-            className="flex-1 py-2 rounded-md bg-red-600 text-white font-medium hover:bg-red-800 transition-colors"
-            text="Delete"
-          />
+          <Buttons className=" bg-indigo-600 text-white font-medium hover:bg-indigo-800 ">
+            Edit
+          </Buttons>
+          <Buttons className=" bg-red-600 text-white font-medium hover:bg-red-800 ">
+            Delete
+          </Buttons>
         </div>
       </div>
     </div>
