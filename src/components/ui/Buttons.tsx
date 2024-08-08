@@ -2,14 +2,15 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children : ReactNode ,
-    className : string
+    className : string ,
+    width? : "w-full" | "w-fit"
 }
 
-export default function Buttons({children , className , ...rest}:IProps) {
+export default function Buttons({children , className , width='w-full' , ...rest}:IProps) {
   console.log(rest);
   
   return (
-    <button className={`flex-1 py-2 rounded-md transition-colors ${className}`} {...rest}>
+    <button className={` py-2 rounded-md ${width} transition-colors  ${className}`}  {...rest}>
       {children}
     </button>
   );
