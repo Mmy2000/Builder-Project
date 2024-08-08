@@ -33,7 +33,7 @@ export default function ProductCard() {
             className="w-10 h-10 rounded-full border border-gray-300 "
           />
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-2">
           <Buttons
             width="w-full"
             className="  bg-indigo-600 text-white font-medium hover:bg-indigo-800 "
