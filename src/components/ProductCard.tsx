@@ -34,7 +34,11 @@ export default function ProductCard() {
           />
         </div>
         <div className="flex gap-4">
-          <Buttons className=" bg-indigo-600 text-white font-medium hover:bg-indigo-800 ">
+          <Buttons  className=" bg-indigo-600 text-white font-medium hover:bg-indigo-800 " onClick={ ()=>{
+            console.log('clicked');
+            
+            
+          }} >
             Edit
           </Buttons>
           <Buttons className=" bg-red-600 text-white font-medium hover:bg-red-800 ">
