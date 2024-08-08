@@ -10,7 +10,7 @@ interface IProps {
 
 export default function ProductCard({product}:IProps) {
 
-  const {title , imageURL ,description} = product
+  const {title , imageURL ,description , category , price} = product
  
   return (
     <div className="shadow-lg border max-w-sm mx-auto md:max-w-md border-gray-200 rounded-lg flex flex-col transition-transform duration-300 hover:shadow-2xl hover:scale-105">
@@ -34,11 +34,11 @@ export default function ProductCard({product}:IProps) {
           <span className="w-5 h-5 cursor-pointer bg-blue-600 rounded-full"></span>
         </div>
         <div className="flex justify-between items-center mb-4">
-          <span className="text-xl font-bold text-gray-900">$250,000</span>
+          <span className="text-xl font-bold text-gray-900">${price}</span>
 
           <Image
-            imageURL="https://img.freepik.com/premium-photo/modern-automobile-classic-technology-wheel-traffic_665346-119.jpg"
-            alt="Product Name"
+            imageURL={category.imageURL}
+            alt={category.name}
             className="w-10 h-10 rounded-full border border-gray-300 "
           />
         </div>

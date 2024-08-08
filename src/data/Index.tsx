@@ -14,7 +14,7 @@ export const productList: IProduct[] = [
         "https://img.freepik.com/premium-photo/modern-automobile-classic-technology-wheel-traffic_665346-119.jpg",
     },
     imageURL:
-      "https://cdn.ferrari.com/cms/network/media/img/resize/5dd552852cdb32285a785d2e-line-up-ferrari-sf90-stradale?width=800&height=600",
+      "https://cdni.autocarindia.com/utils/imageresizer.ashx?n=https://cms.haymarketindia.net/model/uploads/modelimages/Tata-Nexon-EV-210920231305.jpeg&w=872&h=578&q=75&c=1",
     colors: ["#FF0032", "#2563eb", "#FF6E31"],
   },
   {
