@@ -22,7 +22,7 @@ function App() {
   ));
   const renderedFormInput = formInputList.map((input) => (
     <div className="flex flex-col">
-      <label htmlFor={input.id} className=''>{input.label}</label>
+      <label htmlFor={input.id} className='mb-1'>{input.label}</label>
       <Input id={input.id} name={input.name} type='text' />
     </div>
   ));
@@ -43,14 +43,14 @@ function App() {
       <Modal isOpen={isOpen} closeModal={close} title="Add New Product">
         <div className='space-y-2'>
           {renderedFormInput}
-          <div className="flex justify-between mt-5 gap-2">
+          <form className="flex justify-between mt-5 gap-2">
             <Buttons className=" bg-green-600 text-white font-medium hover:bg-green-800 ">
               Submit
             </Buttons>
             <Buttons className=" bg-red-600 text-white font-medium hover:bg-red-800 ">
               Cancel
             </Buttons>
-          </div>
+          </form>
         </div>
       </Modal>
     </>
