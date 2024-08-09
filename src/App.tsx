@@ -38,7 +38,7 @@ function App() {
       </div>
       <Modal isOpen={isOpen} closeModal={close} title="Add New Product">
         {renderedFormInput}
-        <div className="flex justify-between gap-20">
+        <div className="flex justify-between mt-5 gap-20">
           <Buttons className=" bg-green-600 text-white font-medium hover:bg-green-800 ">
             Submit
           </Buttons>
