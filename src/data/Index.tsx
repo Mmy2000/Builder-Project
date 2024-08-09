@@ -1,4 +1,4 @@
-import {IProduct} from '../interfaces'
+import {IFormInput, IProduct} from '../interfaces'
 import { v4 as uuidv4 } from "uuid";
 
 export const productList: IProduct[] = [
@@ -91,5 +91,33 @@ export const productList: IProduct[] = [
     imageURL:
       "https://imgd.aeplcdn.com/370x208/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80",
     colors: ["#FF0032", "#2563eb", "#FF6E31"],
+  },
+];
+
+export const formInputList:IFormInput[] = [
+  {
+    id: "title",
+    name: "title",
+    label: "Product Name",
+    type: "text",
+  },
+  {
+    id: "description",
+    name: "description",
+    label: "Product Description",
+    type: "text",
+  },
+
+  {
+    id: "image",
+    name: "imageURL",
+    label: "Product Image",
+    type: "text",
+  },
+  {
+    id: "price",
+    name: "price",
+    label: "Product Price",
+    type: "text",
   },
 ];
