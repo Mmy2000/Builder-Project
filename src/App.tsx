@@ -7,7 +7,7 @@ import Buttons from './components/ui/Buttons';
 
 
 function App() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   function open() {
     setIsOpen(true);
@@ -21,10 +21,15 @@ function App() {
   ));
   return (
     <>
-      <div className="px-5 container mx-auto my-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-6 ">
-        {renderedProductList}
+      <div className="px-5 container mx-auto my-10  ">
+        <Buttons className="bg-green-600 mb-6 text-white font-medium hover:bg-green-800" width='w-fit' onClick={open}>
+          Add
+        </Buttons>
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-6">
+          {renderedProductList}
+        </div>
       </div>
-      <Modal isOpen={isOpen} closeModal={close} title="Hi">
+      <Modal isOpen={isOpen} closeModal={close} title="Add New Product">
         <div className="flex justify-between gap-20">
           <Buttons className=" bg-green-600 text-white font-medium hover:bg-green-800 ">
             Submit

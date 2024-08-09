@@ -10,7 +10,7 @@ export default function Buttons({children , className , width='w-full' , ...rest
   console.log(rest);
   
   return (
-    <button className={` py-2 rounded-md ${width} transition-colors  ${className}`}  {...rest}>
+    <button className={` py-2 px-4 rounded-md ${width} transition-colors  ${className}`}  {...rest}>
       {children}
     </button>
   );
