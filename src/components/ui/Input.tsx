@@ -1,13 +1,7 @@
-import { ButtonHTMLAttributes } from "react";
+import { InputHTMLAttributes } from "react";
 
-interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  
-}
+interface IProps extends InputHTMLAttributes<HTMLInputElement> {}
 
-export default function Input({...rest}:IProps) {
-  return (
-    
-      <input  {...rest} />
-    
-  );
+export default function Input({ ...rest }: IProps) {
+  return <input {...rest} />;
 }

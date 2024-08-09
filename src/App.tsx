@@ -23,7 +23,7 @@ function App() {
   const renderedFormInput = formInputList.map((input) => (
     <div className="flex flex-col">
       <label htmlFor={input.id}>{input.label}</label>
-      <Input id={input.id} name={input.name}  />
+      <Input id={input.id} name={input.name} type='text' />
     </div>
   ));
   return (
