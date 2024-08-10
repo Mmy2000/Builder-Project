@@ -7,7 +7,6 @@ interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export default function Buttons({children , className , width='w-full' , ...rest}:IProps) {
-  console.log(rest);
   
   return (
     <button className={` py-2 px-4 rounded-md ${width} transition-colors  ${className}`}  {...rest}>
