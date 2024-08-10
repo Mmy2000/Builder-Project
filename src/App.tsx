@@ -39,6 +39,8 @@ function App() {
     })
     
   }
+  console.log(product);
+  
 
   const renderedProductList = productList.map((product) => (
     <ProductCard product={product} key={product.id} />
@@ -46,7 +48,7 @@ function App() {
   const renderedFormInput = formInputList.map((input) => (
     <div className="flex flex-col">
       <label htmlFor={input.id} className='mb-1'>{input.label}</label>
-      <Input id={input.id} name={input.name} type='text'value={product[]}  onChange={onChangeHandler} />
+      <Input id={input.id} name={input.name} type='text'value={product[input.name]}  onChange={onChangeHandler} />
     </div>
   ));
   return (
