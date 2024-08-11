@@ -6,6 +6,7 @@ import { formInputList, productList } from './data/Index';
 import Buttons from './components/ui/Buttons';
 import Input from './components/ui/Input';
 import { IProduct } from './interfaces';
+import { productValidation } from "./validation";
 
 
 
@@ -41,7 +42,13 @@ function App() {
   }
   const submitHandler = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    console.log(product);
+    const errors = productValidation({
+      title: product.title,
+      description: product.description,
+      price: product.price,
+      imageURL: product.imageURL,
+    });
+    console.log(errors);
   };
 
   const onCancel = () => {
