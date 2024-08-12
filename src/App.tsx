@@ -45,6 +45,10 @@ function App() {
       ...product,
       [name]:value
     })
+    setErrors({
+      ...errors,
+      [name]:""
+    })
     
   }
   const submitHandler = (event: FormEvent<HTMLFormElement>): void => {
