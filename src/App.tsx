@@ -128,7 +128,7 @@ function App() {
         <form className="space-y-2" onSubmit={submitHandler}>
           {renderedFormInput}
           <div className="flex gap-1 flex-wrap mb-3">{renderedProductColor}</div>
-          <div className="flex gap-1 flex-wrap mb-3">{tempColors.map( color => <span key={color} className="p-1 mr-1 mb-1 text-xs rounded-md" style={{backgroundColor:color}}>{color}</span>)}</div>
+          <div className="flex gap-1 flex-wrap mb-3">{tempColors.map( color => <span key={color} className={`p-1 mr-1 mb-1 text-xs rounded-md ${color == '#000000'? 'text-white':'text-black'}  `} style={{backgroundColor:color}}>{color}</span>)}</div>
           <div className="flex justify-between mt-5 gap-2">
             <Buttons className=" bg-green-600 text-white font-medium hover:bg-green-800 ">
               Submit

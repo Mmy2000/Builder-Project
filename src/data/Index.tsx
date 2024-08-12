@@ -122,11 +122,12 @@ export const formInputList:IFormInput[] = [
   },
 ];
 
-export const colors:string[] = [
+export const colors: string[] = [
   "#40E0D0",
   "#FFBF00",
   "#DFFF00",
   "#DE3163",
+  "#000000",
   "#6495ED",
   "#CCCCFF",
   "#9FE2BF",
