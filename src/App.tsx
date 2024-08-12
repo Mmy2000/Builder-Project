@@ -42,11 +42,12 @@ function App() {
   }
   const submitHandler = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
+    const {title , description , price , imageURL} = product
     const errors = productValidation({
-      title: product.title,
-      description: product.description,
-      price: product.price,
-      imageURL: product.imageURL,
+      title,
+      description,
+      price,
+      imageURL,
     });
     console.log(errors);
   };
