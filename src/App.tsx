@@ -97,7 +97,7 @@ function App() {
     </div>
   ));
 
-  const renderedProductColor = colors.map((color) => <CircleColor key={color} /> );
+  const renderedProductColor = colors.map((color) => <CircleColor key={color} color={color} /> );
 
   
 
