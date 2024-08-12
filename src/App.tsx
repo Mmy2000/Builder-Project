@@ -118,7 +118,7 @@ function App() {
       <Modal isOpen={isOpen} closeModal={close} title="Add New Product">
         <form className="space-y-2" onSubmit={submitHandler}>
           {renderedFormInput}
-          <div className="flex gap-2 mb-3">{renderedProductColor}</div>
+          <div className="flex gap-1 flex-wrap mb-3">{renderedProductColor}</div>
           <div className="flex justify-between mt-5 gap-2">
             <Buttons className=" bg-green-600 text-white font-medium hover:bg-green-800 ">
               Submit
