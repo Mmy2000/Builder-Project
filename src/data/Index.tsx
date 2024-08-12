@@ -130,17 +130,4 @@ export const colors:string[] = [
   "#6495ED",
   "#CCCCFF",
   "#9FE2BF",
-  "#40E0D0",
-  "#230F00",
-  "#DFFF00",
-  "#DE3163",
-  "#6495ED",
-  "#CCCCFF",
-  "#9FE2BF",
-  "#40E0D0",
-  "#FFBF00",
-  "#000000",
-  "#DE3163",
-  "#6495ED",
-
 ];

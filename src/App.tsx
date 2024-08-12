@@ -32,6 +32,9 @@ function App() {
     imageURL: "",
     price: "",
   });
+  const [tempColors , setTempColors] = useState<string[]>([])
+  console.log(tempColors);
+  
   
   function open() {
     setIsOpen(true);
@@ -97,7 +100,8 @@ function App() {
     </div>
   ));
 
-  const renderedProductColor = colors.map((color) => <CircleColor key={color} color={color} /> );
+  const renderedProductColor = colors.map((color) => <CircleColor key={color} color={color} onClick={()=> setTempColors( (prev)=> [...prev , color])
+  } /> );
 
   
 
