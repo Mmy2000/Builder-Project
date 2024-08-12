@@ -49,11 +49,12 @@ function App() {
       price,
       imageURL,
     });
+    console.log(errors);
     
     const isMsgError = Object.values(errors).some(value => value == '')&& Object.values(errors).every(value => value =='')
     console.log(isMsgError);
     if (!isMsgError) {
-      return
+      return;
     }
     console.log("send data");
     

@@ -23,7 +23,7 @@ export const productValidation = (product : {title:string , description: string 
         price: "",
     }
 
-    const validURL = /^(ftp|http|https):\/\/[^."]+$/.test(product.imageURL)
+    const validURL = /\b(?:https?:\/\/)?(?:www\.)?[^\s]+\.(?:jpg|jpeg|png|gif|bmp|webp)\b/.test(product.imageURL)
     if (!product.title.trim() || product.title.length < 10 || product.title.length > 80) {
         errors.title = "Product title must be between 10 and 80 characters!"
     }
