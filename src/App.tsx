@@ -31,7 +31,6 @@ function App() {
     imageURL: "",
     price: "",
   });
-  console.log("errors",errors);
   
   function open() {
     setIsOpen(true);
