@@ -7,6 +7,7 @@ import Buttons from './components/ui/Buttons';
 import Input from './components/ui/Input';
 import { IProduct } from './interfaces';
 import { productValidation } from "./validation";
+import ErrorMessage from "./components/err/ErrorMessage";
 
 
 
@@ -24,7 +25,14 @@ function App() {
   };
   const [isOpen, setIsOpen] = useState(false);
   const [product, setProduct] = useState<IProduct>(defaultProductObj);
-
+  const [errors, setErrors] = useState({
+    title: "",
+    description: "",
+    imageURL: "",
+    price: "",
+  });
+  console.log("errors",errors);
+  
   function open() {
     setIsOpen(true);
   }
@@ -54,6 +62,7 @@ function App() {
     const isMsgError = Object.values(errors).some(value => value == '')&& Object.values(errors).every(value => value =='')
     console.log(isMsgError);
     if (!isMsgError) {
+      setErrors(errors)
       return;
     }
     console.log("send data");
@@ -72,8 +81,17 @@ function App() {
   ));
   const renderedFormInput = formInputList.map((input) => (
     <div className="flex flex-col" key={input.id}>
-      <label htmlFor={input.id} className='mb-1'>{input.label}</label>
-      <Input id={input.id} name={input.name} type='text'value={product[input.name]}  onChange={onChangeHandler} />
+      <label htmlFor={input.id} className="mb-1">
+        {input.label}
+      </label>
+      <Input
+        id={input.id}
+        name={input.name}
+        type="text"
+        value={product[input.name]}
+        onChange={onChangeHandler}
+      />
+      <ErrorMessage msg={errors[input.name]} />
     </div>
   ));
   
