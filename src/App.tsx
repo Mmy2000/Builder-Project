@@ -100,7 +100,12 @@ function App() {
     </div>
   ));
 
-  const renderedProductColor = colors.map((color) => <CircleColor key={color} color={color} onClick={()=> setTempColors( (prev)=> [...prev , color])
+  const renderedProductColor = colors.map((color) => <CircleColor key={color} color={color} onClick={()=> {
+    if (tempColors.includes(color)) {
+      setTempColors((prev)=> prev.filter(item => item != color))
+      return;
+    }
+    setTempColors( (prev)=>  [...prev , color])}
   } /> );
 
   
@@ -123,6 +128,7 @@ function App() {
         <form className="space-y-2" onSubmit={submitHandler}>
           {renderedFormInput}
           <div className="flex gap-1 flex-wrap mb-3">{renderedProductColor}</div>
+          <div className="flex gap-1 flex-wrap mb-3">{tempColors.map( color => <span key={color} className="p-1 mr-1 mb-1 text-xs rounded-md" style={{backgroundColor:color}}>{color}</span>)}</div>
           <div className="flex justify-between mt-5 gap-2">
             <Buttons className=" bg-green-600 text-white font-medium hover:bg-green-800 ">
               Submit
