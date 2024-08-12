@@ -2,12 +2,13 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import ProductCard from './components/ProductCard'
 import Modal from './components/ui/Modal';
-import { formInputList, productList } from './data/Index';
+import { colors, formInputList, productList } from './data/Index';
 import Buttons from './components/ui/Buttons';
 import Input from './components/ui/Input';
 import { IProduct } from './interfaces';
 import { productValidation } from "./validation";
 import ErrorMessage from "./components/err/ErrorMessage";
+import CircleColor from "./components/ui/CircleColor";
 
 
 
@@ -63,12 +64,10 @@ function App() {
     console.log(errors);
     
     const isMsgError = Object.values(errors).some(value => value == '')&& Object.values(errors).every(value => value =='')
-    console.log(isMsgError);
     if (!isMsgError) {
       setErrors(errors)
       return;
     }
-    console.log("send data");
     
   };
 
@@ -97,6 +96,9 @@ function App() {
       <ErrorMessage msg={errors[input.name]} />
     </div>
   ));
+
+  const renderedProductColor = colors.map((color) => <CircleColor key={color} /> );
+
   
 
   return (
@@ -114,17 +116,21 @@ function App() {
         </div>
       </div>
       <Modal isOpen={isOpen} closeModal={close} title="Add New Product">
-        <div className='space-y-2'>
+        <form className="space-y-2" onSubmit={submitHandler}>
           {renderedFormInput}
-          <form className="flex justify-between mt-5 gap-2" onSubmit={submitHandler}>
+          <div className="flex gap-2 mb-3">{renderedProductColor}</div>
+          <div className="flex justify-between mt-5 gap-2">
             <Buttons className=" bg-green-600 text-white font-medium hover:bg-green-800 ">
               Submit
             </Buttons>
-            <Buttons className=" bg-red-600 text-white font-medium hover:bg-red-800 " onClick={onCancel}>
+            <Buttons
+              className=" bg-red-600 text-white font-medium hover:bg-red-800 "
+              onClick={onCancel}
+            >
               Cancel
             </Buttons>
-          </form>
-        </div>
+          </div>
+        </form>
       </Modal>
     </>
   );
