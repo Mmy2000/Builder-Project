@@ -71,7 +71,10 @@ function App() {
       return;
     }
 
-    setProducts((prev) => [...prev, { ...product, id: uuidv4(),colors:tempColors }]);
+    setProducts((prev) => [
+      { ...product, id: uuidv4(), colors: tempColors },
+      ...prev
+    ]);
     console.log({ ...product, id: uuidv4() });
     setTempColors([])
     setProduct(defaultProductObj)
