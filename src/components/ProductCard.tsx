@@ -3,6 +3,7 @@ import Image from "./Image";
 
 import { IProduct } from "../interfaces";
 import { textSlicer } from "../utils/functions";
+import CircleColor from "./ui/CircleColor";
 
 interface IProps {
   product : IProduct
@@ -10,7 +11,15 @@ interface IProps {
 
 export default function ProductCard({product}:IProps) {
 
-  const {title , imageURL ,description , category , price} = product
+  const {title , imageURL ,description , category,colors , price} = product
+
+  const renderedProductColor = colors.map((color) => (
+    <CircleColor
+      key={color}
+      color={color}
+      
+    />
+  ));
  
   return (
     <div className="shadow-lg border max-w-sm mx-auto  border-gray-200 rounded-lg flex flex-col transition-transform duration-300 hover:shadow-2xl hover:scale-105">
@@ -22,16 +31,13 @@ export default function ProductCard({product}:IProps) {
         />
       </div>
       <div className="px-4 py-2 bg-white rounded-b-lg">
-        <h3 className="mt-2 text-2xl font-semibold text-gray-800">
-          {title}
-        </h3>
-        <p className="my-3 text-gray-600">
-          {textSlicer(description)}
-        </p>
+        <h3 className="mt-2 text-2xl font-semibold text-gray-800">{title}</h3>
+        <p className="my-3 text-gray-600">{textSlicer(description)}</p>
         <div className="flex gap-1 mb-3">
-          <span className="w-5 h-5 cursor-pointer bg-red-600 rounded-full"></span>
-          <span className="w-5 h-5 cursor-pointer bg-yellow-600 rounded-full"></span>
-          <span className="w-5 h-5 cursor-pointer bg-blue-600 rounded-full"></span>
+          <div className="flex gap-1 flex-wrap mb-3">
+            {renderedProductColor}
+          </div>
+          
         </div>
         <div className="flex justify-between items-center mb-4">
           <span className="text-xl font-bold text-gray-900">${price}</span>

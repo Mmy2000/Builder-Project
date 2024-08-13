@@ -9,7 +9,7 @@ import { IProduct } from './interfaces';
 import { productValidation } from "./validation";
 import ErrorMessage from "./components/err/ErrorMessage";
 import CircleColor from "./components/ui/CircleColor";
-
+import { v4 as uuidv4 } from "uuid";
 
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
     },
   };
   const [isOpen, setIsOpen] = useState(false);
+  const [products, setProducts] = useState<IProduct[]>(productList);
   const [product, setProduct] = useState<IProduct>(defaultProductObj);
   const [errors, setErrors] = useState({
     title: "",
@@ -33,7 +34,6 @@ function App() {
     price: "",
   });
   const [tempColors , setTempColors] = useState<string[]>([])
-  console.log(tempColors);
   
   
   function open() {
@@ -64,13 +64,19 @@ function App() {
       price,
       imageURL,
     });
-    console.log(errors);
     
     const isMsgError = Object.values(errors).some(value => value == '')&& Object.values(errors).every(value => value =='')
     if (!isMsgError) {
       setErrors(errors)
       return;
     }
+
+    setProducts((prev) => [...prev, { ...product, id: uuidv4(),colors:tempColors }]);
+    console.log({ ...product, id: uuidv4() });
+    setTempColors([])
+    setProduct(defaultProductObj)
+    close()
+
     
   };
 
@@ -81,7 +87,7 @@ function App() {
   };
   
 
-  const renderedProductList = productList.map((product) => (
+  const renderedProductList = products.map((product) => (
     <ProductCard product={product} key={product.id} />
   ));
   const renderedFormInput = formInputList.map((input) => (
