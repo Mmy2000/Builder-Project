@@ -1,4 +1,4 @@
-import {IFormInput, IProduct} from '../interfaces'
+import {ICategory, IFormInput, IProduct} from '../interfaces'
 import { v4 as uuidv4 } from "uuid";
 
 export const productList: IProduct[] = [
@@ -131,4 +131,37 @@ export const colors: string[] = [
   "#6495ED",
   "#CCCCFF",
   "#9FE2BF",
+];
+
+export const categories:ICategory[] = [
+  {
+    id: uuidv4(),
+    imageURL:
+      "https://imgd.aeplcdn.com/370x208/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80",
+    name:"cars"
+  },
+  {
+    id: uuidv4(),
+    imageURL:
+      "https://imgd.aeplcdn.com/370x208/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80",
+    name:"PC Desktop"
+  },
+  {
+    id: uuidv4(),
+    imageURL:
+      "https://imgd.aeplcdn.com/370x208/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80",
+    name:"T_Shirt"
+  },
+  {
+    id: uuidv4(),
+    imageURL:
+      "https://imgd.aeplcdn.com/370x208/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80",
+    name:"clothes"
+  },
+  {
+    id: uuidv4(),
+    imageURL:
+      "https://imgd.aeplcdn.com/370x208/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80",
+    name:"nike"
+  },
 ];
