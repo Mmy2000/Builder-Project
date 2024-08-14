@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Label,
   Listbox,
@@ -8,9 +7,16 @@ import {
 } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { categories } from "../../data/Index";
+import { ICategory } from "../../interfaces";
 
-export default function Select() {
-  const [selected, setSelected] = useState(categories[0]);
+interface IProps {
+  selected: ICategory;
+  setSelected: (category : ICategory)=> void
+}
+
+export default function Select({selected , setSelected}:IProps) {
+    console.log(selected);
+    
 
   return (
     <Listbox value={selected} onChange={setSelected}>
@@ -22,10 +28,10 @@ export default function Select() {
           <span className="flex items-center">
             <img
               alt=""
-              src={selected.imageURL}
+              src={selected?.imageURL}
               className="h-5 w-5 flex-shrink-0 rounded-full"
             />
-            <span className="ml-3 block truncate">{selected.name}</span>
+            <span className="ml-3 block truncate">{selected?.name}</span>
           </span>
           <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
             <ChevronUpDownIcon

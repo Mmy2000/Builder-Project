@@ -2,7 +2,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import ProductCard from './components/ProductCard'
 import Modal from './components/ui/Modal';
-import { colors, formInputList, productList } from './data/Index';
+import { categories, colors, formInputList, productList } from './data/Index';
 import Buttons from './components/ui/Buttons';
 import Input from './components/ui/Input';
 import { IProduct } from './interfaces';
@@ -35,6 +35,8 @@ function App() {
     price: "",
   });
   const [tempColors , setTempColors] = useState<string[]>([])
+  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+
   
   
   function open() {
@@ -73,7 +75,7 @@ function App() {
     }
 
     setProducts((prev) => [
-      { ...product, id: uuidv4(), colors: tempColors },
+      { ...product, id: uuidv4(), colors: tempColors,category:selectedCategory },
       ...prev
     ]);
     console.log({ ...product, id: uuidv4() });
@@ -137,7 +139,7 @@ function App() {
       <Modal isOpen={isOpen} closeModal={close} title="Add New Product">
         <form className="space-y-2" onSubmit={submitHandler}>
           {renderedFormInput}
-          <Select />
+          <Select selected={selectedCategory} setSelected={setSelectedCategory} />
           <div className="flex gap-1 flex-wrap mb-3">
             {renderedProductColor}
           </div>

@@ -11,7 +11,7 @@ export const productList: IProduct[] = [
     category: {
       name: "cars",
       imageURL:
-        "https://img.freepik.com/premium-photo/modern-automobile-classic-technology-wheel-traffic_665346-119.jpg",
+        "https://cdn.ferrari.com/cms/network/media/img/resize/5dd552852cdb32285a785d2e-line-up-ferrari-sf90-stradale?width=800&height=600",
     },
     imageURL:
       "https://cdni.autocarindia.com/utils/imageresizer.ashx?n=https://cms.haymarketindia.net/model/uploads/modelimages/Tata-Nexon-EV-210920231305.jpeg&w=872&h=578&q=75&c=1",
@@ -133,35 +133,23 @@ export const colors: string[] = [
   "#9FE2BF",
 ];
 
-export const categories:ICategory[] = [
+export const categories: ICategory[] = [
   {
     id: uuidv4(),
     imageURL:
-      "https://imgd.aeplcdn.com/370x208/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80",
-    name:"cars"
+      "https://cdn.ferrari.com/cms/network/media/img/resize/5dd552852cdb32285a785d2e-line-up-ferrari-sf90-stradale?width=800&height=600",
+    name: "cars",
   },
   {
     id: uuidv4(),
     imageURL:
-      "https://imgd.aeplcdn.com/370x208/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80",
-    name:"PC Desktop"
+      "https://t3.ftcdn.net/jpg/01/56/55/24/360_F_156552441_xlhQ0Nr4kV1xrxzngI6IjpJ7aeZJQMfD.jpg",
+    name: "PC Desktop",
   },
   {
     id: uuidv4(),
     imageURL:
-      "https://imgd.aeplcdn.com/370x208/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80",
-    name:"T_Shirt"
-  },
-  {
-    id: uuidv4(),
-    imageURL:
-      "https://imgd.aeplcdn.com/370x208/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80",
-    name:"clothes"
-  },
-  {
-    id: uuidv4(),
-    imageURL:
-      "https://imgd.aeplcdn.com/370x208/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80",
-    name:"nike"
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0sUC5TXixWwZpwieDqjB52j-StydNQ2OtgQ&s",
+    name: "T-Shirt",
   },
 ];
