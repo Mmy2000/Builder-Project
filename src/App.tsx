@@ -60,7 +60,11 @@ function App() {
   }
   const submitHandler = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    const {title , description , price , imageURL,colors} = product
+
+    // Extract product details
+    const { title, description, price, imageURL, colors } = product;
+
+    // Validate product
     const errors = productValidation({
       title,
       description,
@@ -68,23 +72,29 @@ function App() {
       imageURL,
       colors,
     });
-    
-    const isMsgError = Object.values(errors).some(value => value == '')&& Object.values(errors).every(value => value =='')
-    if (!isMsgError) {
-      setErrors(errors)
+
+    // Check if there are any validation errors
+    const hasErrors = Object.values(errors).some((value) => value !== "");
+
+    if (hasErrors) {
+      // Set errors and exit the handler
+      setErrors(errors);
       return;
     }
 
     setProducts((prev) => [
-      { ...product, id: uuidv4(), colors: tempColors,category:selectedCategory },
-      ...prev
+      {
+        ...product,
+        id: uuidv4(),
+        colors: tempColors,
+        category: selectedCategory,
+      },
+      ...prev,
     ]);
     console.log({ ...product, id: uuidv4() });
-    setTempColors([])
-    setProduct(defaultProductObj)
-    close()
-
-    
+    setTempColors([]);
+    setProduct(defaultProductObj);
+    close();
   };
 
   const onCancel = () => {

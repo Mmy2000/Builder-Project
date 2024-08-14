@@ -15,7 +15,6 @@ interface IProps {
 }
 
 export default function Select({selected , setSelected}:IProps) {
-    console.log(selected);
     
 
   return (
