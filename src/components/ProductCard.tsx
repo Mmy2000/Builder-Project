@@ -6,27 +6,23 @@ import { textSlicer } from "../utils/functions";
 import CircleColor from "./ui/CircleColor";
 
 interface IProps {
-  product : IProduct,
-  setProductToEdit : (product:IProduct)=> void
+  product: IProduct;
+  setProductToEdit: (product: IProduct) => void;
+  openEdit : ()=> void
 }
 
-export default function ProductCard({product , setProductToEdit}:IProps) {
-
-  const {title , imageURL ,description , category,colors , price} = product
+export default function ProductCard({ product, setProductToEdit, openEdit }: IProps) {
+  const { title, imageURL, description, category, colors, price } = product;
 
   const renderedProductColor = colors.map((color) => (
-    <CircleColor
-      key={color}
-      color={color}
-      
-    />
+    <CircleColor key={color} color={color} />
   ));
 
-  const onEdit = ()=>{
+  const onEdit = () => {
     setProductToEdit(product);
-    
-  }
- 
+    openEdit()
+  };
+
   return (
     <div className="shadow-lg border max-w-sm mx-auto  border-gray-200 rounded-lg flex flex-col transition-transform duration-300 hover:shadow-2xl hover:scale-105">
       <div className="overflow-hidden rounded-t-lg">
@@ -43,7 +39,6 @@ export default function ProductCard({product , setProductToEdit}:IProps) {
           <div className="flex gap-1 flex-wrap mb-3">
             {renderedProductColor}
           </div>
-          
         </div>
         <div className="flex justify-between items-center mb-4">
           <span className="text-xl font-bold text-gray-900">${price}</span>

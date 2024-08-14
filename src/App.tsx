@@ -26,9 +26,11 @@ function App() {
     },
   };
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenEditModel, setIsOpenEditModel] = useState(false);
   const [products, setProducts] = useState<IProduct[]>(productList);
   const [product, setProduct] = useState<IProduct>(defaultProductObj);
-  const [productToEdit, setProductToEdit] = useState(defaultProductObj);
+  const [productToEdit, setProductToEdit] =
+    useState<IProduct>(defaultProductObj);
   const [errors, setErrors] = useState({
     title: "",
     description: "",
@@ -48,6 +50,13 @@ function App() {
 
   function close() {
     setIsOpen(false);
+  }
+  function openEdit() {
+    setIsOpenEditModel(true);
+  }
+
+  function closeEdit() {
+    setIsOpenEditModel(false);
   }
   const onChangeHandler = (event:ChangeEvent<HTMLInputElement>) =>{
     const {value , name} = event.target
@@ -103,14 +112,13 @@ function App() {
   };
 
   const onCancel = () => {
-    console.log("cancel");
     setProduct(defaultProductObj);
     close()
   };
   
 
   const renderedProductList = products.map((product) => (
-    <ProductCard product={product} key={product.id} setProductToEdit={setProductToEdit} />
+    <ProductCard product={product} key={product.id} setProductToEdit={setProductToEdit} openEdit={openEdit} />
   ));
   const renderedFormInput = formInputList.map((input) => (
     <div className="flex flex-col" key={input.id}>
@@ -156,7 +164,47 @@ function App() {
       <Modal isOpen={isOpen} closeModal={close} title="Add New Product">
         <form className="space-y-2" onSubmit={submitHandler}>
           {renderedFormInput}
-          <Select selected={selectedCategory} setSelected={setSelectedCategory} />
+          <Select
+            selected={selectedCategory}
+            setSelected={setSelectedCategory}
+          />
+          <div className="flex gap-1 flex-wrap mb-3">
+            {renderedProductColor}
+          </div>
+          <div className="flex gap-1 flex-wrap mb-3">
+            {tempColors.map((color) => (
+              <span
+                key={color}
+                className={`p-1 mr-1 mb-1 text-xs rounded-md ${
+                  color == "#000000" ? "text-white" : "text-black"
+                }  `}
+                style={{ backgroundColor: color }}
+              >
+                {color}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex justify-between mt-5 gap-2">
+            <Buttons className=" bg-green-600 text-white font-medium hover:bg-green-800 ">
+              Submit
+            </Buttons>
+            <Buttons
+              className=" bg-red-600 text-white font-medium hover:bg-red-800 "
+              onClick={onCancel}
+            >
+              Cancel
+            </Buttons>
+          </div>
+        </form>
+      </Modal>
+      <Modal isOpen={isOpenEditModel} closeModal={closeEdit} title="Edit Product">
+        <form className="space-y-2" onSubmit={submitHandler}>
+          {renderedFormInput}
+          <Select
+            selected={selectedCategory}
+            setSelected={setSelectedCategory}
+          />
           <div className="flex gap-1 flex-wrap mb-3">
             {renderedProductColor}
           </div>
