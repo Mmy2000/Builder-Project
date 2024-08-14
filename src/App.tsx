@@ -79,6 +79,8 @@ function App() {
     if (hasErrors) {
       // Set errors and exit the handler
       setErrors(errors);
+      console.log(errors);
+      
       return;
     }
 
@@ -119,7 +121,8 @@ function App() {
         value={product[input.name]}
         onChange={onChangeHandler}
       />
-      <ErrorMessage msg={errors[input.name]} />
+      {/* Ensure ErrorMessage handles string properly */}
+      <ErrorMessage msg={errors[input.name] } />
     </div>
   ));
 

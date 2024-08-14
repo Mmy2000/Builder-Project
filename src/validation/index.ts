@@ -42,7 +42,7 @@ export const productValidation = (product: { title: string, description: string,
         errors.imageURL = "Please enter a valid URL!";
     }
 
-    if (product.colors.length === 0) {
+    if (!product.colors) {
         errors.colors = "You should choose at least one color!";
     }
 
