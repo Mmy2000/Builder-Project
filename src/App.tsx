@@ -60,12 +60,13 @@ function App() {
   }
   const submitHandler = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    const {title , description , price , imageURL} = product
+    const {title , description , price , imageURL,colors} = product
     const errors = productValidation({
       title,
       description,
       price,
       imageURL,
+      colors,
     });
     
     const isMsgError = Object.values(errors).some(value => value == '')&& Object.values(errors).every(value => value =='')

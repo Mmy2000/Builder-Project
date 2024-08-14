@@ -15,12 +15,13 @@
  * @returns {string} returns.price - Error message for the price field, if any.
  */
 
-export const productValidation = (product : {title:string , description: string , imageURL:string , price:string })=>{
-    const errors:{title: string ,description: string ,imageURL:string ,price: string} = {
+export const productValidation = (product : {title:string , description: string , imageURL:string , price:string,colors:string })=>{
+    const errors:{title: string ,description: string ,imageURL:string ,price: string,colors:string} = {
         title: "",
         description: "",
         imageURL: "",
         price: "",
+        colors: "",
     }
 
     const validURL = /\b(?:https?:\/\/)?(?:www\.)?[^\s]+\.(?:jpg|jpeg|png|gif|bmp|webp)\b/.test(product.imageURL)
@@ -35,6 +36,9 @@ export const productValidation = (product : {title:string , description: string 
     }
     if (!product.imageURL.trim() || !validURL) {
         errors.imageURL = "Please enter a valid url!"
+    }
+    if (!product.colors) {
+        errors.imageURL = "You should choose one color at least!"
     }
 
 
