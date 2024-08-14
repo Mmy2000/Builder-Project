@@ -6,10 +6,11 @@ import { textSlicer } from "../utils/functions";
 import CircleColor from "./ui/CircleColor";
 
 interface IProps {
-  product : IProduct
+  product : IProduct,
+  setProductToEdit : (product:IProduct)=> void
 }
 
-export default function ProductCard({product}:IProps) {
+export default function ProductCard({product , setProductToEdit}:IProps) {
 
   const {title , imageURL ,description , category,colors , price} = product
 
@@ -20,6 +21,11 @@ export default function ProductCard({product}:IProps) {
       
     />
   ));
+
+  const onEdit = ()=>{
+    setProductToEdit(product);
+    
+  }
  
   return (
     <div className="shadow-lg border max-w-sm mx-auto  border-gray-200 rounded-lg flex flex-col transition-transform duration-300 hover:shadow-2xl hover:scale-105">
@@ -52,9 +58,7 @@ export default function ProductCard({product}:IProps) {
           <Buttons
             width="w-full"
             className="  bg-indigo-600 text-white font-medium hover:bg-indigo-800 "
-            onClick={() => {
-              console.log("clicked");
-            }}
+            onClick={onEdit}
           >
             Edit
           </Buttons>

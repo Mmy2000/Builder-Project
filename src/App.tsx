@@ -28,15 +28,18 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [products, setProducts] = useState<IProduct[]>(productList);
   const [product, setProduct] = useState<IProduct>(defaultProductObj);
+  const [productToEdit, setProductToEdit] = useState(defaultProductObj);
   const [errors, setErrors] = useState({
     title: "",
     description: "",
     imageURL: "",
     price: "",
+    colors:''
   });
   const [tempColors , setTempColors] = useState<string[]>([])
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
 
+  console.log(productToEdit);
   
   
   function open() {
@@ -107,7 +110,7 @@ function App() {
   
 
   const renderedProductList = products.map((product) => (
-    <ProductCard product={product} key={product.id} />
+    <ProductCard product={product} key={product.id} setProductToEdit={setProductToEdit} />
   ));
   const renderedFormInput = formInputList.map((input) => (
     <div className="flex flex-col" key={input.id}>
