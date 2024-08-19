@@ -70,6 +70,18 @@ function App() {
     })
     
   }
+  const onChangeEditHandler = (event:ChangeEvent<HTMLInputElement>) =>{
+    const {value , name} = event.target
+    setProductToEdit({
+      ...productToEdit,
+      [name]:value
+    })
+    setErrors({
+      ...errors,
+      [name]:""
+    })
+    
+  }
   const submitHandler = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
 
@@ -84,6 +96,50 @@ function App() {
       imageURL,
       colors,
     });
+
+    
+
+    // Check if there are any validation errors
+    const hasErrors = Object.values(errors).some((value) => value !== "");
+
+    if (hasErrors) {
+      // Set errors and exit the handler
+      setErrors(errors);
+      console.log(errors);
+      
+      return;
+    }
+
+    setProducts((prev) => [
+      {
+        ...product,
+        id: uuidv4(),
+        colors: tempColors,
+        category: selectedCategory,
+      },
+      ...prev,
+    ]);
+    console.log({ ...product, id: uuidv4() });
+    setTempColors([]);
+    setProduct(defaultProductObj);
+    close();
+  };
+  const submitEditHandler = (event: FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+
+    // Extract product details
+    const { title, description, price, imageURL, colors } = product;
+
+    // Validate product
+    const errors = productValidation({
+      title,
+      description,
+      price,
+      imageURL,
+      colors,
+    });
+
+    
 
     // Check if there are any validation errors
     const hasErrors = Object.values(errors).some((value) => value !== "");
@@ -198,14 +254,32 @@ function App() {
           </div>
         </form>
       </Modal>
-      <Modal isOpen={isOpenEditModel} closeModal={closeEdit} title="Edit Product">
-        <form className="space-y-2" onSubmit={submitHandler}>
-          {renderedFormInput}
-          <Select
+      <Modal
+        isOpen={isOpenEditModel}
+        closeModal={closeEdit}
+        title="Edit Product"
+      >
+        <form className="space-y-2" onSubmit={submitEditHandler}>
+          <div className="flex flex-col" >
+            <label htmlFor={"title"} className="mb-1">
+              {/* {input.label} */}
+              Product Title
+            </label>
+            <Input
+              id={"title"}
+              name={"title"}
+              type="text"
+              value={productToEdit['title']}
+              onChange={onChangeEditHandler}
+            />
+            {/* Ensure ErrorMessage handles string properly */}
+            <ErrorMessage msg={""} />
+          </div>
+          {/* <Select
             selected={selectedCategory}
             setSelected={setSelectedCategory}
-          />
-          <div className="flex gap-1 flex-wrap mb-3">
+          /> */}
+          {/* <div className="flex gap-1 flex-wrap mb-3">
             {renderedProductColor}
           </div>
           <div className="flex gap-1 flex-wrap mb-3">
@@ -220,7 +294,7 @@ function App() {
                 {color}
               </span>
             ))}
-          </div>
+          </div> */}
 
           <div className="flex justify-between mt-5 gap-2">
             <Buttons className=" bg-green-600 text-white font-medium hover:bg-green-800 ">
