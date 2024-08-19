@@ -129,7 +129,7 @@ function App() {
     event.preventDefault();
 
     // Extract product details
-    const { title, description, price, imageURL, colors } = product;
+    const { title, description, price, imageURL, colors } = productToEdit;
 
     // Validate product
     const errors = productValidation({
@@ -164,7 +164,7 @@ function App() {
     ]);
     console.log({ ...product, id: uuidv4() });
     setTempColors([]);
-    setProduct(defaultProductObj);
+    setProductToEdit(defaultProductObj);
     close();
   };
 
@@ -281,7 +281,18 @@ function App() {
         title="Edit Product"
       >
         <form className="space-y-2" onSubmit={submitEditHandler}>
-          {renderedProductEditWithError("title" , "Product Title" , "title")}
+          {renderedProductEditWithError("title", "Product Title", "title")}
+          {renderedProductEditWithError(
+            "description",
+            "Product Description",
+            "description"
+          )}
+          {renderedProductEditWithError(
+            "imageURL",
+            "Product Image URL",
+            "imageURL"
+          )}
+          {renderedProductEditWithError("price", "Product Price", "price")}
           {/* <Select
             selected={selectedCategory}
             setSelected={setSelectedCategory}
