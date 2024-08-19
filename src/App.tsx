@@ -11,6 +11,7 @@ import ErrorMessage from "./components/err/ErrorMessage";
 import CircleColor from "./components/ui/CircleColor";
 import { v4 as uuidv4 } from "uuid";
 import Select from "./components/ui/Select";
+import { productName } from "./types";
 
 
 function App() {
@@ -201,6 +202,26 @@ function App() {
     setTempColors( (prev)=>  [...prev , color])}
   } /> );
 
+  const renderedProductEditWithError = (id:string , label:string , name:productName)=>{
+    return (
+      <div className="flex flex-col">
+        <label htmlFor={id} className="mb-1">
+          {/* {input.label} */}
+          {label}
+        </label>
+        <Input
+          id={id}
+          name={name}
+          type="text"
+          value={productToEdit[name]}
+          onChange={onChangeEditHandler}
+        />
+        {/* Ensure ErrorMessage handles string properly */}
+        <ErrorMessage msg={errors[name]} />
+      </div>
+    );
+  }
+
   
 
   return (
@@ -260,21 +281,7 @@ function App() {
         title="Edit Product"
       >
         <form className="space-y-2" onSubmit={submitEditHandler}>
-          <div className="flex flex-col" >
-            <label htmlFor={"title"} className="mb-1">
-              {/* {input.label} */}
-              Product Title
-            </label>
-            <Input
-              id={"title"}
-              name={"title"}
-              type="text"
-              value={productToEdit['title']}
-              onChange={onChangeEditHandler}
-            />
-            {/* Ensure ErrorMessage handles string properly */}
-            <ErrorMessage msg={""} />
-          </div>
+          {renderedProductEditWithError("title" , "Product Title" , "title")}
           {/* <Select
             selected={selectedCategory}
             setSelected={setSelectedCategory}
