@@ -163,7 +163,7 @@ function App() {
       ...prev,
     ]);
     const updatedProduct = [...products]
-    updatedProduct[productToEditIdx] = productToEdit
+    updatedProduct[productToEditIdx] = {...productToEdit , colors:tempColors.concat(productToEdit.colors)}
     setProducts(updatedProduct)
     setTempColors([]);
     setProductToEdit(defaultProductObj);
@@ -206,6 +206,10 @@ function App() {
 
   const renderedProductColor = colors.map((color) => <CircleColor key={color} color={color} onClick={()=> {
     if (tempColors.includes(color)) {
+      setTempColors((prev)=> prev.filter(item => item != color))
+      return;
+    }
+    if (productToEdit.colors.includes(color)) {
       setTempColors((prev)=> prev.filter(item => item != color))
       return;
     }
@@ -307,11 +311,11 @@ function App() {
             selected={selectedCategory}
             setSelected={setSelectedCategory}
           /> */}
-          {/* <div className="flex gap-1 flex-wrap mb-3">
+          <div className="flex gap-1 flex-wrap mb-3">
             {renderedProductColor}
           </div>
           <div className="flex gap-1 flex-wrap mb-3">
-            {tempColors.map((color) => (
+            {tempColors.concat(productToEdit.colors).map((color) => (
               <span
                 key={color}
                 className={`p-1 mr-1 mb-1 text-xs rounded-md ${
@@ -322,7 +326,7 @@ function App() {
                 {color}
               </span>
             ))}
-          </div> */}
+          </div>
 
           <div className="flex justify-between mt-5 gap-2">
             <Buttons className=" bg-green-600 text-white font-medium hover:bg-green-800 ">
