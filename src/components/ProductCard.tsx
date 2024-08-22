@@ -8,10 +8,12 @@ import CircleColor from "./ui/CircleColor";
 interface IProps {
   product: IProduct;
   setProductToEdit: (product: IProduct) => void;
-  openEdit : ()=> void
+  openEdit: () => void;
+  idx:number;
+  setProductToEditIdx:(value:number)=>void
 }
 
-export default function ProductCard({ product, setProductToEdit, openEdit }: IProps) {
+export default function ProductCard({ product, setProductToEdit, openEdit,idx, setProductToEditIdx }: IProps) {
   const { title, imageURL, description, category, colors, price } = product;
 
   const renderedProductColor = colors.map((color) => (
@@ -20,7 +22,8 @@ export default function ProductCard({ product, setProductToEdit, openEdit }: IPr
 
   const onEdit = () => {
     setProductToEdit(product);
-    openEdit()
+    openEdit();
+    setProductToEditIdx(idx);
   };
 
   return (

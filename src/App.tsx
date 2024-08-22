@@ -32,6 +32,8 @@ function App() {
   const [product, setProduct] = useState<IProduct>(defaultProductObj);
   const [productToEdit, setProductToEdit] =
     useState<IProduct>(defaultProductObj);
+  const [productToEditIdx, setProductToEditIdx] =
+    useState<number>(0);
   const [errors, setErrors] = useState({
     title: "",
     description: "",
@@ -160,10 +162,10 @@ function App() {
       },
       ...prev,
     ]);
-    console.log({ ...product, id: uuidv4() });
+    const updatedProduct = [...products]
     setTempColors([]);
     setProductToEdit(defaultProductObj);
-    close();
+    closeEdit();
   };
 
   const onCancel = () => {
@@ -171,9 +173,17 @@ function App() {
     close()
   };
   
+  
 
-  const renderedProductList = products.map((product) => (
-    <ProductCard product={product} key={product.id} setProductToEdit={setProductToEdit} openEdit={openEdit} />
+  const renderedProductList = products.map((product, idx) => (
+      <ProductCard
+        product={product}
+        key={product.id}
+        setProductToEdit={setProductToEdit}
+        openEdit={openEdit}
+        idx={idx}
+        setProductToEditIdx={setProductToEditIdx}
+      />
   ));
   const renderedFormInput = formInputList.map((input) => (
     <div className="flex flex-col" key={input.id}>
