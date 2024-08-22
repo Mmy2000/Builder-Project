@@ -163,6 +163,8 @@ function App() {
       ...prev,
     ]);
     const updatedProduct = [...products]
+    updatedProduct[productToEditIdx] = productToEdit
+    setProducts(updatedProduct)
     setTempColors([]);
     setProductToEdit(defaultProductObj);
     closeEdit();
