@@ -140,8 +140,6 @@ function App() {
       colors,
     });
 
-    
-
     // Check if there are any validation errors
     const hasErrors = Object.values(errors).some((value) => value !== "");
 
