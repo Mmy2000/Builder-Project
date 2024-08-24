@@ -24,7 +24,7 @@ export default function Modal({isOpen , closeModal ,description, title , childre
         __demoMode
       >
         {/* Backdrop */}
-        <div className="fixed inset-0 backdrop-blur-sm" aria-hidden="true" />
+        <div className="fixed inset-0 backdrop-brightness-[0.2]" aria-hidden="true" />
 
         {/* Modal Content */}
         <div className="fixed  inset-0 z-10 w-screen overflow-y-auto">
