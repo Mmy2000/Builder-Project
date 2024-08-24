@@ -19,7 +19,9 @@ export default function ProductCard({ product, setProductToEdit,openConfirm, ope
   const { title, imageURL, description, category, colors, price } = product;
 
   const renderedProductColor = colors.map((color) => (
-    <CircleColor key={color} color={color} />
+    <CircleColor key={color} color={color} onClick={function (): void {
+      throw new Error("Function not implemented.");
+    } } />
   ));
 
   const onEdit = () => {
@@ -54,12 +56,14 @@ export default function ProductCard({ product, setProductToEdit,openConfirm, ope
           <span className="text-xl font-bold text-gray-900">
             ${formatPrice(price)}
           </span>
-
-          <Image
-            imageURL={category.imageURL}
-            alt={category.name}
-            className="w-10 h-10 rounded-full border border-gray-300 "
-          />
+          <div className="flex items-center">
+            <span className="me-2 font-semibold">{category.name}</span>
+            <Image
+              imageURL={category.imageURL}
+              alt={category.name}
+              className="w-10 h-10 rounded-full border border-gray-300 "
+            />
+          </div>
         </div>
         <div className="flex gap-2">
           <Buttons
