@@ -6,12 +6,12 @@ interface IProps {
   isOpen : boolean,
   closeModal : ()=> void,
   title? : string , 
-  description? : string
+  description? : string,
   children : ReactNode
 
 }
 
-export default function Modal({isOpen , closeModal , title , children}:IProps) {
+export default function Modal({isOpen , closeModal ,description, title , children}:IProps) {
   
 
   return (
@@ -35,12 +35,15 @@ export default function Modal({isOpen , closeModal , title , children}:IProps) {
             >
               {title && (
                 <DialogTitle
-                  as="h3"
+                  as="h2"
                   className="text-base/7 font-medium text-black"
                 >
                   {title}
                 </DialogTitle>
               )}
+              <p className="mt-2 text-sm/6 text-black/50">
+                {description}
+              </p>
 
               <div className="mt-4">{children}</div>
             </DialogPanel>

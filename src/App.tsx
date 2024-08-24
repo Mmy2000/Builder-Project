@@ -354,12 +354,17 @@ function App() {
       <Modal
         isOpen={isOpenConfirmModal}
         closeModal={closeConfirmModal}
-        title="Are you sure you want to remove this product from your story"
+        title="Are you absolutely sure?"
         description="This action cannot be undone. This will permanently delete your account and remove your data from our servers."
       >
         <div className="flex space-x-3 items-center">
-          <Buttons className="bg-red-600 hover:bg-red-800">Yes, remove</Buttons>
-          <Buttons className="bg-gray-200 hover:bg-gray-400 text-black" onClick={closeConfirmModal}>Cancel</Buttons>
+          <Buttons className="bg-red-600 hover:bg-red-800 text-white">Yes, remove</Buttons>
+          <Buttons
+            className="bg-gray-200 hover:bg-gray-300 text-black"
+            onClick={closeConfirmModal}
+          >
+            Cancel
+          </Buttons>
         </div>
       </Modal>
     </>
