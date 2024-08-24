@@ -27,6 +27,11 @@ export default function ProductCard({ product, setProductToEdit,openConfirm, ope
     setProductToEditIdx(idx);
   };
 
+  const onRemove = () =>{
+    setProductToEdit(product);
+    openConfirm()
+  }
+
   return (
     <div className="shadow-lg border max-w-sm mx-auto  border-gray-200 rounded-lg flex flex-col transition-transform duration-300 hover:shadow-2xl hover:scale-105">
       <div className="overflow-hidden rounded-t-lg">
@@ -64,7 +69,7 @@ export default function ProductCard({ product, setProductToEdit,openConfirm, ope
           <Buttons
             width="w-full"
             className=" bg-red-600 text-white font-medium hover:bg-red-800 "
-            onClick={openConfirm}
+            onClick={onRemove}
           >
             Delete
           </Buttons>

@@ -44,8 +44,6 @@ function App() {
   });
   const [tempColors , setTempColors] = useState<string[]>([])
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
-
-  console.log(productToEdit);
   
   
   function open() {
@@ -176,6 +174,13 @@ function App() {
     setProductToEdit(defaultProductObj);
     closeEdit();
   };
+
+  const removeProductHandler = ()=>{
+    const filtered = products.filter(product => product.id != productToEdit.id)
+    setProducts(filtered)
+    closeConfirmModal()
+    
+  }
 
   const onCancel = () => {
     setProduct(defaultProductObj);
@@ -358,7 +363,7 @@ function App() {
         description="This action cannot be undone. This will permanently delete your account and remove your data from our servers."
       >
         <div className="flex space-x-3 items-center">
-          <Buttons className="bg-red-600 hover:bg-red-800 text-white">Yes, remove</Buttons>
+          <Buttons className="bg-red-600 hover:bg-red-800 text-white" onClick={removeProductHandler}>Yes, remove</Buttons>
           <Buttons
             className="bg-gray-200 hover:bg-gray-300 text-black"
             onClick={closeConfirmModal}
