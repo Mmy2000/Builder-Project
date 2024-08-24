@@ -307,10 +307,10 @@ function App() {
             "imageURL"
           )}
           {renderedProductEditWithError("price", "Product Price", "price")}
-          {/* <Select
-            selected={selectedCategory}
-            setSelected={setSelectedCategory}
-          /> */}
+          <Select
+            selected={productToEdit.category}
+            setSelected={(value)=>{setProductToEdit({...productToEdit,category:value})}}
+          />
           <div className="flex gap-1 flex-wrap mb-3">
             {renderedProductColor}
           </div>
