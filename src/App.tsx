@@ -12,7 +12,7 @@ import CircleColor from "./components/ui/CircleColor";
 import { v4 as uuidv4 } from "uuid";
 import Select from "./components/ui/Select";
 import { productName } from "./types";
-
+import toast, { Toaster } from "react-hot-toast";
 
 function App() {
   const defaultProductObj = {
@@ -131,6 +131,12 @@ function App() {
     setTempColors([]);
     setProduct(defaultProductObj);
     close();
+    toast.success("Product added successfully",{
+      style:{
+        backgroundColor:'black',
+        color:'white'
+      }
+    });
   };
   const submitEditHandler = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
@@ -173,13 +179,25 @@ function App() {
     setTempColors([]);
     setProductToEdit(defaultProductObj);
     closeEdit();
+    toast.success("Product updated successfully", {
+      style: {
+        backgroundColor: "black",
+        color: "white",
+      },
+    });
   };
 
   const removeProductHandler = ()=>{
     const filtered = products.filter(product => product.id != productToEdit.id)
     setProducts(filtered)
     closeConfirmModal()
-    
+    toast("Product deleted successfully", {
+      icon: "👏",
+      style: {
+        backgroundColor:'red',
+        color:'white'
+      }
+    });
   }
 
   const onCancel = () => {
@@ -372,6 +390,7 @@ function App() {
           </Buttons>
         </div>
       </Modal>
+      <Toaster/>
     </>
   );
 }
