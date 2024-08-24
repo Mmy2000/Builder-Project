@@ -28,6 +28,7 @@ function App() {
   };
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenEditModel, setIsOpenEditModel] = useState(false);
+  const [isOpenConfirmModal, setIsOpenConfirmModal] = useState(false);
   const [products, setProducts] = useState<IProduct[]>(productList);
   const [product, setProduct] = useState<IProduct>(defaultProductObj);
   const [productToEdit, setProductToEdit] =
@@ -53,6 +54,12 @@ function App() {
 
   function close() {
     setIsOpen(false);
+  }
+  function closeConfirmModal() {
+    setIsOpenConfirmModal(false);
+  }
+  function openConfirmModal() {
+    setIsOpenConfirmModal(true);
   }
   function openEdit() {
     setIsOpenEditModel(true);
@@ -183,6 +190,7 @@ function App() {
         key={product.id}
         setProductToEdit={setProductToEdit}
         openEdit={openEdit}
+        openConfirm={openConfirmModal}
         idx={idx}
         setProductToEditIdx={setProductToEditIdx}
       />
@@ -309,7 +317,9 @@ function App() {
           {renderedProductEditWithError("price", "Product Price", "price")}
           <Select
             selected={productToEdit.category}
-            setSelected={(value)=>{setProductToEdit({...productToEdit,category:value})}}
+            setSelected={(value) => {
+              setProductToEdit({ ...productToEdit, category: value });
+            }}
           />
           <div className="flex gap-1 flex-wrap mb-3">
             {renderedProductColor}
@@ -340,6 +350,17 @@ function App() {
             </Buttons>
           </div>
         </form>
+      </Modal>
+      <Modal
+        isOpen={isOpenConfirmModal}
+        closeModal={closeConfirmModal}
+        title="Are you sure you want to remove this product from your story"
+        description="This action cannot be undone. This will permanently delete your account and remove your data from our servers."
+      >
+        <div className="flex space-x-3 items-center">
+          <Buttons className="bg-red-600 hover:bg-red-800">Yes, remove</Buttons>
+          <Buttons className="bg-gray-200 hover:bg-gray-400 text-black" onClick={closeConfirmModal}>Cancel</Buttons>
+        </div>
       </Modal>
     </>
   );

@@ -9,11 +9,12 @@ interface IProps {
   product: IProduct;
   setProductToEdit: (product: IProduct) => void;
   openEdit: () => void;
+  openConfirm: () => void;
   idx:number;
   setProductToEditIdx:(value:number)=>void
 }
 
-export default function ProductCard({ product, setProductToEdit, openEdit,idx, setProductToEditIdx }: IProps) {
+export default function ProductCard({ product, setProductToEdit,openConfirm, openEdit,idx, setProductToEditIdx }: IProps) {
   const { title, imageURL, description, category, colors, price } = product;
 
   const renderedProductColor = colors.map((color) => (
@@ -63,6 +64,7 @@ export default function ProductCard({ product, setProductToEdit, openEdit,idx, s
           <Buttons
             width="w-full"
             className=" bg-red-600 text-white font-medium hover:bg-red-800 "
+            onClick={openConfirm}
           >
             Delete
           </Buttons>

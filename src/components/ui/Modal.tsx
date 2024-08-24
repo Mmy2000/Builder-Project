@@ -1,12 +1,12 @@
 import {  Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { ReactNode } from "react";
-import Buttons from "./Buttons";
 
 
 interface IProps {
   isOpen : boolean,
   closeModal : ()=> void,
   title? : string , 
+  description? : string
   children : ReactNode
 
 }
