@@ -2,8 +2,9 @@ import Buttons from "./ui/Buttons";
 import Image from "./Image";
 
 import { IProduct } from "../interfaces";
-import { textSlicer } from "../utils/functions";
+import { formatPrice, textSlicer } from "../utils/functions";
 import CircleColor from "./ui/CircleColor";
+
 
 interface IProps {
   product: IProduct;
@@ -50,7 +51,9 @@ export default function ProductCard({ product, setProductToEdit,openConfirm, ope
           </div>
         </div>
         <div className="flex justify-between items-center mb-4">
-          <span className="text-xl font-bold text-gray-900">${price}</span>
+          <span className="text-xl font-bold text-gray-900">
+            ${formatPrice(price)}
+          </span>
 
           <Image
             imageURL={category.imageURL}
